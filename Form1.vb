@@ -41,7 +41,7 @@ Public Class Form1
                 Dim content As String = Await client.GetStringAsync(url)
                 Label1.Text = content
             Catch ex As Exception
-                Label1.Text = "Error. Click to try again."
+                Label1.Text = "Error.  Click to try again."
             End Try
         End Using
 
