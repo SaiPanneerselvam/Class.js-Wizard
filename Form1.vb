@@ -2,6 +2,7 @@
 Imports System.IO
 Imports System.IO.Compression
 Public Class Form1
+    Dim content
     Dim username As String = Environment.UserName
     Dim installed As Boolean = False
     Dim path As String = $"C:\Users\{Environment.UserName}\Classjs\install\class.js-main\app\installed.info"
@@ -54,6 +55,10 @@ Public Class Form1
             Label7.ForeColor = Color.Red
         End If
 
+        If installed = True Then
+            content = File.ReadAllText($"C:\Users\" & username & "\Classjs\install\class.js-main\app\version.info")
+            Label9.Text = content
+        End If
 
     End Sub
 
@@ -98,5 +103,9 @@ Public Class Form1
         Catch ex As Exception
             MessageBox.Show("Uninstall failed: " & ex.Message)
         End Try
+    End Sub
+
+    Private Sub Label9_Click(sender As Object, e As EventArgs) Handles Label9.Click
+
     End Sub
 End Class
